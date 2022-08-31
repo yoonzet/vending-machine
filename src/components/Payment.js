@@ -9,7 +9,6 @@ const Div = styled.div`
   &::after {
     content: "";
     width: 90%;
-    /* height: 1px; */
     border: 1px solid #f2d194;
     border-style: dashed;
     position: absolute;
@@ -18,14 +17,13 @@ const Div = styled.div`
   }
 `;
 const BtnWrap = styled.div`
-  margin: 30px;
+  margin: 50px;
 `;
 const Button = styled.button`
   all: unset;
   width: 100px;
   height: 40px;
   background-color: #f2b705;
-  /* box-shadow: 0px 0px 10px 2px #ddd; */
   border-radius: 30px;
   margin: 0 20px;
   cursor: pointer;
@@ -38,7 +36,7 @@ const Button = styled.button`
   }
 `;
 const P_money = styled.p`
-  margin: 30px;
+  margin-bottom: 30px;
   font-size: 20px;
   color: gray;
   text-align: center;
@@ -51,7 +49,6 @@ const Btn_buy = styled.button`
   width: 300px;
   height: 60px;
   background-color: #f25430;
-  /* box-shadow: 0px 4px 5px 1px #ddd; */
   border-radius: 10px;
   text-align: center;
   color: #fff;
@@ -109,10 +106,12 @@ function Payment({
         <Button onClick={onClick} value={10000}>
           10,000원
         </Button>
-        <P_money>투입금액: {commaMoney}원</P_money>
       </BtnWrap>
+      <P_money>투입금액: {commaMoney}원</P_money>
+
       <H2>상품 합계: {priceToString(productsSum)}원</H2>
       <Btn_buy onClick={onClickBuy}>구매하기</Btn_buy>
+
       <P_charge style={{ display: show ? "block" : "none" }}>
         {commaMoney === commaCharge
           ? "상품을 골라주세요"

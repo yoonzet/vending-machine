@@ -8,11 +8,20 @@ const Div = styled.div`
   justify-content: center;
   align-items: center;
   margin: 5vh 10%;
+  min-width: 900px;
   padding: 5% 0;
   border-radius: 25px;
   background-color: #fff;
   box-shadow: 0px 0px 15px 10px #eee;
   position: relative;
+`;
+const Footer = styled.div`
+  /* height: 100vh; */
+  position: relative;
+  bottom: 0;
+  margin-bottom: 3%;
+  text-align: center;
+  font-size: 12px;
 `;
 
 function App() {
@@ -21,10 +30,16 @@ function App() {
   }
 
   return (
-    <Div>
-      <ProductsContainer priceToString={priceToString} />
-      <PaymentContainer priceToString={priceToString} />
-    </Div>
+    <>
+      <Div>
+        <ProductsContainer priceToString={priceToString} />
+        <PaymentContainer priceToString={priceToString} />
+      </Div>
+      <Footer>
+        &copy;{new Date().getFullYear()}Portfolio <br /> yoonzet703@gmail.com /
+        Lee yoonji
+      </Footer>
+    </>
   );
 }
 

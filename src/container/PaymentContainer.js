@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Payment from "../components/Payment";
 import { useDispatch, useSelector } from "react-redux";
 import { putMoney } from "../modules/payment";
