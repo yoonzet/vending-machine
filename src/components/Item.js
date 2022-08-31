@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 
 const Ul = styled.ul`
@@ -12,17 +11,17 @@ const Box = styled.div`
   background-color: #ddd;
 `;
 
-function Item({ list }) {
+function Item({ items, onClick, choose }) {
   return (
     <div>
       <Ul>
-        {list.map((item) => (
-          <li>
-            <Box />
+        {items.map((item) => (
+          <li key={item.id}>
+            <Box onClick={() => onClick(item.id)} />
             <p>{item.name}</p>
             <p>가격: {item.price}원</p>
             <p>재고: {item.stock}개</p>
-            <p>구매가능여부: {item.stock ? "가능" : "품절"}</p>
+            <p>구매가능여부: {item.stock > 0 ? "가능" : "품절"}</p>
           </li>
         ))}
       </Ul>

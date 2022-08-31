@@ -1,4 +1,4 @@
-const products = [
+export const productsList = [
   {
     id: 1,
     name: "apple",
@@ -8,26 +8,26 @@ const products = [
   {
     id: 2,
     name: "banana",
-    price: 1000,
-    stock: 5,
+    price: 2000,
+    stock: 10,
   },
   {
     id: 3,
     name: "peach",
-    price: 1000,
+    price: 3000,
     stock: 5,
   },
   {
     id: 4,
     name: "mango",
-    price: 1000,
-    stock: 5,
+    price: 4000,
+    stock: 7,
   },
 ];
 
-export const getProducts = async () => {
-  return products;
-};
-export const getProductById = async (id) => {
-  return products.find((item) => item.id === id);
-};
+// export const getProducts = async () => {
+//   return products;
+// };
+// export const getProductById = async (id) => {
+//   return products.find((item) => item.id === id);
+// };
