@@ -2,27 +2,34 @@ import styled from "styled-components";
 
 const Ul = styled.ul`
   display: flex;
-  justify-content: space-between;
+  margin-top: 5%;
+`;
+const Li = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
-const Box = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: #ddd;
+const Img = styled.img`
+  width: 200px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(102%);
+  }
 `;
 
-function Item({ productsList, onClick }) {
+function Item({ productsList, onClick, priceToString }) {
   return (
     <div>
       <Ul>
         {productsList.map((item) => (
-          <li key={item.id}>
-            <Box onClick={() => onClick(item.id)} />
-            <p>{item.name}</p>
-            <p>가격: {item.price}원</p>
+          <Li key={item.id}>
+            <Img onClick={() => onClick(item.id)} src={item.img} />
+            {/* <p>{item.name}</p> */}
+            <p>{priceToString(item.price)}원</p>
             <p>재고: {item.stock}개</p>
-            <p>구매가능여부: {item.stock > 0 ? "가능" : "품절"}</p>
-          </li>
+            <p style={{ color: "red" }}>{item.stock > 0 ? "" : "품절"}</p>
+          </Li>
         ))}
       </Ul>
     </div>
