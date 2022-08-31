@@ -11,11 +11,11 @@ const Box = styled.div`
   background-color: #ddd;
 `;
 
-function Item({ items, onClick, choose }) {
+function Item({ productsList, onClick }) {
   return (
     <div>
       <Ul>
-        {items.map((item) => (
+        {productsList.map((item) => (
           <li key={item.id}>
             <Box onClick={() => onClick(item.id)} />
             <p>{item.name}</p>

@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getCharge, putMoney } from "../modules/payment";
 
-function Payment({ productsSum }) {
-  const [money, setMoney] = useState([0]);
-  const [charge, setCharge] = useState(0);
+function Payment({ productsSumInit }) {
+  const { money } = useSelector((state) => ({
+    money: state.payment.money,
+    // charge: state.payment.charge,
+  }));
+  const dispatch = useDispatch();
+  const charge = money - productsSumInit;
 
   const onClick = (e) => {
-    setMoney(
-      [parseInt(money) + parseInt(e.target.value)].reduce(
-        (acc, cur) => acc + cur,
-        0
-      )
-    );
+    dispatch(putMoney(e));
   };
 
-  useEffect(() => {
-    setCharge(money - productsSum);
-  }, [money, productsSum]);
+  // useEffect(() => {
+  //   dispatch(getCharge());
+  // }, [money, productsSumInit]);
 
   return (
     <div>
-      <h2>상품 합계:{productsSum}</h2>
+      <h2>상품 합계:{productsSumInit}</h2>
 
       <div>
         <button onClick={onClick} value={10000}>

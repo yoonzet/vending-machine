@@ -1,35 +1,26 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { productsList } from "../api/products";
+import { useDispatch, useSelector } from "react-redux";
+import { productsSum, stockDown } from "../modules/products";
 import Item from "./Item";
 import Payment from "./Payment";
 
 function Products() {
-  const [items, setItems] = useState(productsList);
-  const [productsSum, setProductsSum] = useState(0);
+  const { productsList, productsSumInit } = useSelector((state) => ({
+    productsList: state.products.productsList,
+    productsSumInit: state.products.productsSumInit,
+  }));
+  const dispatch = useDispatch();
 
   const onClick = (id) => {
-    setItems(
-      items.map((item) =>
-        item.id === id
-          ? { ...item, stock: item.stock > 0 ? item.stock - 1 : 0 }
-          : item
-      )
-    );
-
-    setProductsSum(
-      productsSum +
-        items
-          .map((item) => (item.id === id ? item.stock > 0 && item.price : null))
-          .reduce((acc, cur) => acc + cur, 0)
-    );
+    dispatch(stockDown(id));
+    dispatch(productsSum(id));
   };
+
   return (
     <div>
       <h1>자판기</h1>
 
-      <Item items={items} onClick={onClick} />
-      <Payment items={items} productsSum={productsSum} />
+      <Item productsList={productsList} onClick={onClick} />
+      <Payment productsSumInit={productsSumInit} />
     </div>
   );
 }

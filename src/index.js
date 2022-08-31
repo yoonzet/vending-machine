@@ -5,13 +5,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { applyMiddleware, legacy_createStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import reducer from "./modules/products";
 import { composeWithDevTools } from "redux-devtools-extension";
 import ReduxThunk from "redux-thunk";
 import logger from "redux-logger";
+import rootReducer from "./modules";
 
 const store = legacy_createStore(
-  reducer,
+  rootReducer,
   composeWithDevTools(applyMiddleware(ReduxThunk, logger))
 );
 
