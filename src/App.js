@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Home from "./container/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 
 const Footer = styled.div`
   /* height: 100vh; */
@@ -13,13 +13,15 @@ const Footer = styled.div`
 
 function App() {
   return (
-    <>
-      <Home />
+    <HashRouter>
+      <Routes>
+        <Route path="/" exact element={<Home />}></Route>
+      </Routes>
       <Footer>
         &copy;{new Date().getFullYear()}Portfolio <br />
         yoonzet703@gmail.com / Lee yoonji
       </Footer>
-    </>
+    </HashRouter>
   );
 }
 
