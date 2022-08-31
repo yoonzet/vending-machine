@@ -23,6 +23,8 @@ function PaymentContainer({ priceToString }) {
         onClick={onClick}
         charge={charge}
         commaCharge={commaCharge}
+        productsSumInit={productsSumInit}
+        priceToString={priceToString}
       />
     </div>
   );
