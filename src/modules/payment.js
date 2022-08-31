@@ -25,7 +25,7 @@ export default function payment(state = initialState, action) {
     // case GET_CHARGE:
     //   return {
     //     ...state,
-    //     charge: state.productsState.productsSumInit,
+    //     charge: state.productsState.productsSum,
     //   };
     default:
       return state;

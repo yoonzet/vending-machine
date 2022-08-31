@@ -9,12 +9,13 @@ const Title = styled.h1`
   font-size: 90px;
 `;
 
-function Products({ productsList, productsSumInit, onClick, priceToString }) {
+function Products({ productsList, itemQty, onClick, priceToString }) {
   return (
     <>
       <Title>SNACKS</Title>
       <Item
         productsList={productsList}
+        itemQty={itemQty}
         onClick={onClick}
         priceToString={priceToString}
       />

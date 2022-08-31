@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { putMoney } from "../modules/payment";
 
 function PaymentContainer({ priceToString }) {
-  const { money, productsSumInit } = useSelector((state) => ({
+  const { money, productsSum } = useSelector((state) => ({
     money: state.payment.money,
-    productsSumInit: state.products.productsSumInit,
+    productsSum: state.products.productsSum,
   }));
   const dispatch = useDispatch();
-  const charge = parseInt(money) - parseInt(productsSumInit);
+  const charge = parseInt(money) - parseInt(productsSum);
 
   const commaCharge = priceToString(charge);
   const onClick = (e) => {
@@ -23,7 +23,7 @@ function PaymentContainer({ priceToString }) {
         onClick={onClick}
         charge={charge}
         commaCharge={commaCharge}
-        productsSumInit={productsSumInit}
+        productsSum={productsSum}
         priceToString={priceToString}
       />
     </div>

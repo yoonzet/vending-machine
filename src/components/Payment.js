@@ -84,7 +84,7 @@ const P_charge = styled.p`
 
 function Payment({
   commaMoney,
-  productsSumInit,
+  productsSum,
   charge,
   commaCharge,
   onClick,
@@ -109,15 +109,15 @@ function Payment({
         <Button onClick={onClick} value={10000}>
           10,000원
         </Button>
-        <P_money>투입금액:{commaMoney}원</P_money>
+        <P_money>투입금액: {commaMoney}원</P_money>
       </BtnWrap>
-      <H2>상품 합계:{priceToString(productsSumInit)}원</H2>
+      <H2>상품 합계: {priceToString(productsSum)}원</H2>
       <Btn_buy onClick={onClickBuy}>구매하기</Btn_buy>
       <P_charge style={{ display: show ? "block" : "none" }}>
         {commaMoney === commaCharge
           ? "상품을 골라주세요"
           : charge === 0
-          ? "감사합니다"
+          ? "감사합니다🙂"
           : charge > 0
           ? `거스름돈: ${commaCharge}원`
           : ` 금액이 부족합니다.`}

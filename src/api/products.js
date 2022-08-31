@@ -5,6 +5,7 @@ export const productsList = [
     img: "http://cookieall.com/web/product/big/202010/b09ddb5aab6ae3fc5371d8551637231c.jpg",
     price: 1000,
     stock: 0,
+    qty: 0,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const productsList = [
     img: "http://cookieall.com/web/product/big/202010/9c6be80621eb4e337daf6ebe09a067aa.jpg",
     price: 2000,
     stock: 10,
+    qty: 0,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const productsList = [
     img: "http://cookieall.com/web/product/big/202010/5c3ce5062218208f6d1f1d0759b1e7d2.jpg",
     price: 3000,
     stock: 5,
+    qty: 0,
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const productsList = [
     img: "http://cookieall.com/web/product/big/202010/54979090dc059bb330a78f41de1c6023.jpg",
     price: 4000,
     stock: 7,
+    qty: 0,
   },
 ];
 
